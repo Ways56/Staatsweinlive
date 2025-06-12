@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Staatsweinkürung Live</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🍷 Staatsweinkürung Live 🍷</h1>
+            <div class="view-toggle">
+                <button class="toggle-btn active" onclick="showSenderView()">📤 Sender</button>
+                <button class="toggle-btn" onclick="showReceiverView()">📥 Empfänger</button>
+            </div>
+        </div>
+
+        <div class="content">
+            <!-- Sender View -->
+            <div id="senderView" class="sender-view">
+                <div class="command-buttons">
+                    <button class="command-btn cmd-degustation" onclick="sendCommand('Degustation läuft', 'degustation')">
+                        🍷 Degustation läuft
+                    </button>
+                    <button class="command-btn cmd-abraeumen" onclick="sendCommand('Abräumen', 'abraeumen')">
+                        🧹 Abräumen
+                    </button>
+                    <button class="command-btn cmd-neue-serie" onclick="sendCommand('Neue Serie', 'neue-serie')">
+                        🆕 Neue Serie
+                    </button>
+                    <button class="command-btn cmd-pause" onclick="sendCommand('Pause', 'pause')">
+                        ⏸️ Pause
+                    </button>
+                </div>
+
+                <div class="current-command">
+                    <h3>📋 Aktueller Befehl:</h3>
+                    <p id="currentCommandText">Kein Befehl ausgewählt</p>
+                    <div class="timestamp" id="commandTimestamp"></div>
+                </div>
+            </div>
+
+            <!-- Receiver View -->
+            <div id="receiverView" class="receiver-view hidden">
+                <div class="display-command" id="displayCommand">
+                    <h2 id="receivedCommandText">Warten auf Befehl...</h2>
+                    <div class="timestamp" id="receivedTimestamp"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
